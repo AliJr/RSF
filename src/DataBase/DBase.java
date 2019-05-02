@@ -310,6 +310,7 @@ public class DBase {
 
     }
    
+    
     public ArrayList<String> getStudetRecord(int STUDENT_ID){
         try {
             ArrayList<String> courses = new ArrayList<>();
@@ -326,7 +327,233 @@ public class DBase {
             Logger.getLogger(DBase.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+
     }
+
+     public ArrayList<String> getStudentGrades(int STUDENT_ID){
+        try {
+            ArrayList<String> Grades = new ArrayList<>();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT GRADE FROM STUDENT_RECORD WHERE STUDENT_ID=?)");
+            while (rs.next()) {
+                
+                Grades.add(rs.getString(1));
+            }
+            rs.close();
+            stmt.close();
+            return Grades;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+ 
+     }
+     
+     private int getCredit(String COURSE_NAME){
+        try {
+            PreparedStatement st = conn.prepareStatement("SELECT CREDIT FROM COURSE WHERE COURSE_NAME=?");
+            st.setString(1, COURSE_NAME);
+            ResultSet rs = st.executeQuery();
+            int temp;
+            rs.next();
+            temp = rs.getInt(1);
+            rs.close();
+            st.close();
+            return temp;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+     }
+     private double getGPA(int STUDENT_ID){
+         
+            ArrayList<String> Grades = getStudentGrades(STUDENT_ID);
+            ArrayList<String> names = getStudetRecord(STUDENT_ID);
+            int credits = 0;
+            double totalPoints=0;
+            double temp = 0;
+            for(int i=0;i>=Grades.size();i++){
+                String g = Grades.get(i);
+                if(g.equals("A"))
+                {
+                    totalPoints=4*getCredit(names.get(i));
+                    credits=credits+getCredit(names.get(i));
+                    
+                    
+                }else if(g.equals("B+")){
+                    totalPoints=3.5*getCredit(names.get(i));
+                    credits=credits+getCredit(names.get(i));
+                }
+                else if(g.equals("B")){
+                    totalPoints=3*getCredit(names.get(i));
+                    credits=credits+getCredit(names.get(i));
+                }
+                    else if(g.equals("C+")){
+                        totalPoints=2.5*getCredit(names.get(i));
+                    credits=credits+getCredit(names.get(i));
+                    }
+                        else if(g.equals("C")){
+                            totalPoints=2*getCredit(names.get(i));
+                            credits=credits+getCredit(names.get(i));
+                        }
+                            else if(g.equals("D+")){
+                                totalPoints=1.5*getCredit(names.get(i));
+                    credits=credits+getCredit(names.get(i));
+                            }
+                                else if(g.equals("D")){
+                                    totalPoints=1*getCredit(names.get(i));
+                                    credits=credits+getCredit(names.get(i));
+                                }
+                                    else if(g.equals("F")){
+                                        totalPoints=0*getCredit(names.get(i));
+                                        credits=credits+getCredit(names.get(i));
+                                    }
+            }
+            temp = totalPoints/credits;
+            return temp;
+        
+     }
+       /*     
+    public void Transcript(int STUDENT_ID){
+
+        ArrayList<String> courses = getStudetRecord(STUDENT_ID);
+        ArrayList<String> Grades = getStudentGrades(STUDENT_ID);
+
+        Object Transcript[] = new Object[2];
+
+        for (int i=0 ; i<= courses.size();i++){
+            Transcript[0]=courses.get(i);
+            Transcript[1]=Grades.get(i);
+        }
+ }
+ */
+     public ArrayList<String> courseTought_Csemester(int INSTRUCTOR_ID){
+        try {
+            ArrayList<String> semesterName = new ArrayList<>();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT SEMESTER_NAME FROM SEMESTER WHERE SEMESTER_ID =(SELECT SEMESTER_ID FROM SECTION WHERE NSTRUCTOR_ID=?)");
+            while (rs.next()) {
+               
+                semesterName.add(rs.getString(1));
+            }
+            rs.close();
+            stmt.close();
+            return semesterName;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+     }
+     public ArrayList<String> courseTought_Ccode(int INSTRUCTOR_ID){
+        try {
+            ArrayList<String> coursesCodes = new ArrayList<>();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT COUSRE_ID FROM SECTION WHERE NSTRUCTOR_ID=?");
+            while (rs.next()) {
+               
+                coursesCodes.add(rs.getString(1));
+            }
+            rs.close();
+            stmt.close();
+            return coursesCodes;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+     }
+     public ArrayList<String> courseTought_CName(int INSTRUCTOR_ID){
+        try {
+            ArrayList<String> coursesNames = new ArrayList<>();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT COURSE_NAME FROM COUSRE WHERE COURSE_ID =(SELECT COUSRE_ID FROM SECTION WHERE NSTRUCTOR_ID=?)");
+            while (rs.next()) {
+               
+                coursesNames.add(rs.getString(1));
+            }
+            rs.close();
+            stmt.close();
+            return coursesNames;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+     }
+     public ArrayList<String> courseTought_SectionID(int INSTRUCTOR_ID){
+        try {
+            ArrayList<String> SECTIONID = new ArrayList<>();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT SECTION_ID FROM SECTION WHERE NSTRUCTOR_ID=?");
+            while (rs.next()) {
+               
+                SECTIONID.add(rs.getString(1));
+            }
+            rs.close();
+            stmt.close();
+            return SECTIONID;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+        public ArrayList<String>  courseTought_SectionNoOfStudents(int INSTRUCTOR_ID){
+        try {
+            ArrayList<Integer> CAPACITY = new ArrayList<>();
+            ArrayList<Integer> AVAILABLE = new ArrayList<>();
+            ArrayList<Integer> numOfStudent = new ArrayList<>();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT CAPACITY FROM SECTION WHERE NSTRUCTOR_ID=?");
+            while (rs.next()) {
+               
+                CAPACITY.add(rs.getInt(1));
+            }
+            rs.close();
+            
+
+           
+            rs = stmt.executeQuery("SELECT AVAILABLE FROM SECTION WHERE NSTRUCTOR_ID=?");
+            while (rs.next()) {
+               
+                AVAILABLE.add(rs.getInt(1));
+            }
+            rs.close();
+            stmt.close();
+
+
+for (int i = 0 ; i>= CAPACITY.size();i++){
+    numOfStudent.add(CAPACITY.get(i)-AVAILABLE.get(i));
+
+}
+
+           
+        } catch (SQLException ex) {
+            Logger.getLogger(DBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+       /*
+    public void courseTought(int INSTRUCTOR_ID){
+
+        ArrayList<String> semesterName = courseTought_Csemester(INSTRUCTOR_ID);
+        ArrayList<String> coursesCodes = courseTought_Ccode(INSTRUCTOR_ID);
+        ArrayList<String> coursesNames = courseTought_CName(INSTRUCTOR_ID);
+        ArrayList<String> SECTIONID = courseTought_SectionID(INSTRUCTOR_ID);
+        ArrayList<Integer> numOfStudent = courseTought_SectionNoOfStudents(INSTRUCTOR_ID);
+       
+        Object courseToughtObject[] = new Object[5];
+
+        for (int i=0 ; i<= semesterName.size();i++){
+            courseToughtObject[0]=semesterName.get(i);
+            courseToughtObject[1]=coursesCodes.get(i);
+            courseToughtObject[2]=coursesNames.get(i);
+            courseToughtObject[3]=SECTIONID.get(i);
+            courseToughtObject[4]=numOfStudent.get(i);
+
+
+        }
+       test
+
+ } 
+ */
     public void dropCourse(int studentID, int sectionID) {
         try {
             PreparedStatement st = conn.prepareStatement("DELETE FROM ENROLLS WHERE SECTION_ID = ? AND STUDENT_ID=?");
