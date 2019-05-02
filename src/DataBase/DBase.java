@@ -10,6 +10,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.swing.table.DefaultTableModel;
+
+//import org.graalvm.compiler.core.common.GraalBailoutException;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.Date;
@@ -304,7 +309,24 @@ public class DBase {
         }
 
     }
-
+   
+    public ArrayList<String> getStudetRecord(int STUDENT_ID){
+        try {
+            ArrayList<String> courses = new ArrayList<>();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT COURSE_NAME FROM COUSRE WHERE COURSE_ID =(SELECT COURSE_ID FROM STUDENT_RECORD WHERE STUDENT_ID=?)");
+            while (rs.next()) {
+               
+                courses.add(rs.getString(1));
+            }
+            rs.close();
+            stmt.close();
+            return courses;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
     public void dropCourse(int studentID, int sectionID) {
         try {
             PreparedStatement st = conn.prepareStatement("DELETE FROM ENROLLS WHERE SECTION_ID = ? AND STUDENT_ID=?");
