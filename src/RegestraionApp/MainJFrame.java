@@ -154,6 +154,22 @@ public class MainJFrame extends javax.swing.JFrame {
         jRCCourseComboBox = new javax.swing.JComboBox();
         jRCSectionComboBox = new javax.swing.JComboBox();
         jLabel35 = new javax.swing.JLabel();
+        jDropCoursePanel = new javax.swing.JPanel();
+        jTextFieldIDCStudentID = new javax.swing.JTextField();
+        jLabel36 = new javax.swing.JLabel();
+        jDCDropButton = new javax.swing.JButton();
+        jRCClearButton1 = new javax.swing.JButton();
+        jDCSectionComboBox = new javax.swing.JComboBox();
+        jLabel39 = new javax.swing.JLabel();
+        jInsertGradePanel = new javax.swing.JPanel();
+        jTextFieldIIGStudentID = new javax.swing.JTextField();
+        jLabel37 = new javax.swing.JLabel();
+        jIGInsertButton = new javax.swing.JButton();
+        jRCClearButton2 = new javax.swing.JButton();
+        jIGCourseComboBox = new javax.swing.JComboBox();
+        jLabel40 = new javax.swing.JLabel();
+        jIGGradeComboBox = new javax.swing.JComboBox();
+        jLabel41 = new javax.swing.JLabel();
         jMenuBar = new javax.swing.JMenuBar();
         jAddMenu = new javax.swing.JMenu();
         jAddStudentMenuItem = new javax.swing.JMenuItem();
@@ -172,6 +188,8 @@ public class MainJFrame extends javax.swing.JFrame {
         jAddSectionMenuItem = new javax.swing.JMenuItem();
         jStudentMenu = new javax.swing.JMenu();
         jRegisterCourseMenuItem = new javax.swing.JMenuItem();
+        jDropCourseMenuItem = new javax.swing.JMenuItem();
+        jInsertGradeMenuItem = new javax.swing.JMenuItem();
         jInsertMenu = new javax.swing.JMenu();
         jUpdateMenu = new javax.swing.JMenu();
         jViewMenu = new javax.swing.JMenu();
@@ -184,11 +202,11 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 471, Short.MAX_VALUE)
+            .addGap(0, 475, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 314, Short.MAX_VALUE)
+            .addGap(0, 326, Short.MAX_VALUE)
         );
 
         jPanel.add(jPanel1, "card3");
@@ -314,7 +332,7 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addComponent(jClearButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         jAddStudentPanelLayout.setVerticalGroup(
             jAddStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -349,7 +367,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(jAddStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jClearButton))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTextFieldFName.getAccessibleContext().setAccessibleName("qdqd");
@@ -399,7 +417,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addComponent(jAddNationalityButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jNationalityNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jNationalityAbbTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         jAddNationalityPanelLayout.setVerticalGroup(
             jAddNationalityPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -418,7 +436,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(jAddNationalityPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jAddNationalityButton)
                     .addComponent(jClearNationalityButton))
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
 
         jPanel.add(jAddNationalityPanel, "card4");
@@ -463,7 +481,7 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jRoomCapacityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         jAddRoomPanelLayout.setVerticalGroup(
             jAddRoomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -480,7 +498,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(jAddRoomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jAddRoomButton)
                     .addComponent(jClearRoomButton))
-                .addContainerGap(151, Short.MAX_VALUE))
+                .addContainerGap(163, Short.MAX_VALUE))
         );
 
         jPanel.add(jAddRoomPanel, "card4");
@@ -517,7 +535,7 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jAddCollegeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jAddCollegeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         jAddCollegePanelLayout.setVerticalGroup(
             jAddCollegePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -530,7 +548,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(jAddCollegePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jAddCollegeButton)
                     .addComponent(jClearCollegeButton))
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addContainerGap(216, Short.MAX_VALUE))
         );
 
         jPanel.add(jAddCollegePanel, "card4");
@@ -567,7 +585,7 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jAddSemesterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jAddSemesterTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         jAddSemesterPanelLayout.setVerticalGroup(
             jAddSemesterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -580,7 +598,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(jAddSemesterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jAddSemesterButton)
                     .addComponent(jClearSemesterButton))
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addContainerGap(216, Short.MAX_VALUE))
         );
 
         jPanel.add(jAddSemesterPanel, "card4");
@@ -653,7 +671,7 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addComponent(jInstructorClearButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jInstructorAddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         jAddInstructorPanelLayout.setVerticalGroup(
             jAddInstructorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -672,7 +690,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(jAddInstructorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jInstructorAddButton)
                     .addComponent(jInstructorClearButton))
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap(197, Short.MAX_VALUE))
         );
 
         jPanel.add(jAddInstructorPanel, "card2");
@@ -729,7 +747,7 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addGroup(jAddDepartmentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jAddDepartmentCollegeComboBox, 0, 277, Short.MAX_VALUE)
                             .addComponent(jAddDepartmentTextField))))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         jAddDepartmentPanelLayout.setVerticalGroup(
             jAddDepartmentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -746,7 +764,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(jAddDepartmentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jAddDepartmentButton)
                     .addComponent(jAddDepartmentClearButton))
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap(197, Short.MAX_VALUE))
         );
 
         jPanel.add(jAddDepartmentPanel, "card2");
@@ -815,7 +833,7 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addGroup(jAddCoursePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jAddCourseCreditTextField)
                             .addComponent(jAddCourseComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         jAddCoursePanelLayout.setVerticalGroup(
             jAddCoursePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -836,7 +854,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(jAddCoursePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jAddCourseButton)
                     .addComponent(jAddCourseClearButton))
-                .addContainerGap(151, Short.MAX_VALUE))
+                .addContainerGap(163, Short.MAX_VALUE))
         );
 
         jPanel.add(jAddCoursePanel, "card2");
@@ -892,7 +910,7 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addGroup(jAddPrerequisitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jAddPrerequisiteCourseComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jAddPrerequisitePrerequisiteComboBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         jAddPrerequisitePanelLayout.setVerticalGroup(
             jAddPrerequisitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -909,7 +927,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(jAddPrerequisitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jAddDepartmentButton1)
                     .addComponent(jAddDepartmentClearButton1))
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addContainerGap(189, Short.MAX_VALUE))
         );
 
         jPanel.add(jAddPrerequisitePanel, "card2");
@@ -1119,7 +1137,7 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addComponent(jMajorClearButton, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jMajorAddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         jAddMajorPanelLayout.setVerticalGroup(
             jAddMajorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1136,7 +1154,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(jAddMajorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jMajorAddButton)
                     .addComponent(jMajorClearButton))
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap(197, Short.MAX_VALUE))
         );
 
         jPanel.add(jAddMajorPanel, "card2");
@@ -1233,7 +1251,7 @@ public class MainJFrame extends javax.swing.JFrame {
                             .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jRCSemesterComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         jRegisterCoursePanelLayout.setVerticalGroup(
             jRegisterCoursePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1258,10 +1276,202 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(jRegisterCoursePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRCAddButton)
                     .addComponent(jRCClearButton))
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
 
         jPanel.add(jRegisterCoursePanel, "card2");
+
+        jDropCoursePanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Drop Course"));
+
+        jTextFieldIDCStudentID.setToolTipText("");
+        jTextFieldIDCStudentID.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextFieldIDCStudentIDMouseClicked(evt);
+            }
+        });
+        jTextFieldIDCStudentID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldIDCStudentIDActionPerformed(evt);
+            }
+        });
+
+        jLabel36.setText("Student ID:");
+
+        jDCDropButton.setText("Drop");
+        jDCDropButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jDCDropButtonActionPerformed(evt);
+            }
+        });
+
+        jRCClearButton1.setText("Clear");
+        jRCClearButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRCClearButton1ActionPerformed(evt);
+            }
+        });
+
+        jDCSectionComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jDCSectionComboBoxItemStateChanged(evt);
+            }
+        });
+        jDCSectionComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jDCSectionComboBoxActionPerformed(evt);
+            }
+        });
+
+        jLabel39.setText("Section ID:");
+
+        javax.swing.GroupLayout jDropCoursePanelLayout = new javax.swing.GroupLayout(jDropCoursePanel);
+        jDropCoursePanel.setLayout(jDropCoursePanelLayout);
+        jDropCoursePanelLayout.setHorizontalGroup(
+            jDropCoursePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDropCoursePanelLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(jDropCoursePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDropCoursePanelLayout.createSequentialGroup()
+                        .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jDCSectionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDropCoursePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jDropCoursePanelLayout.createSequentialGroup()
+                            .addComponent(jRCClearButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jDCDropButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jDropCoursePanelLayout.createSequentialGroup()
+                            .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextFieldIDCStudentID, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+        jDropCoursePanelLayout.setVerticalGroup(
+            jDropCoursePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDropCoursePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jDropCoursePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldIDCStudentID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel36))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jDropCoursePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jDCSectionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel39))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jDropCoursePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jDCDropButton)
+                    .addComponent(jRCClearButton1))
+                .addContainerGap(197, Short.MAX_VALUE))
+        );
+
+        jPanel.add(jDropCoursePanel, "card2");
+
+        jInsertGradePanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Drop Course"));
+
+        jTextFieldIIGStudentID.setToolTipText("");
+        jTextFieldIIGStudentID.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextFieldIIGStudentIDMouseClicked(evt);
+            }
+        });
+        jTextFieldIIGStudentID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldIIGStudentIDActionPerformed(evt);
+            }
+        });
+
+        jLabel37.setText("Student ID:");
+
+        jIGInsertButton.setText("Insert");
+        jIGInsertButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jIGInsertButtonActionPerformed(evt);
+            }
+        });
+
+        jRCClearButton2.setText("Clear");
+        jRCClearButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRCClearButton2ActionPerformed(evt);
+            }
+        });
+
+        jIGCourseComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jIGCourseComboBoxItemStateChanged(evt);
+            }
+        });
+        jIGCourseComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jIGCourseComboBoxActionPerformed(evt);
+            }
+        });
+
+        jLabel40.setText("Course Name");
+
+        jIGGradeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A", "B+", "B", "C+", "C", "D+", "D", "F" }));
+        jIGGradeComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jIGGradeComboBoxItemStateChanged(evt);
+            }
+        });
+        jIGGradeComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jIGGradeComboBoxActionPerformed(evt);
+            }
+        });
+
+        jLabel41.setText("Grade");
+
+        javax.swing.GroupLayout jInsertGradePanelLayout = new javax.swing.GroupLayout(jInsertGradePanel);
+        jInsertGradePanel.setLayout(jInsertGradePanelLayout);
+        jInsertGradePanelLayout.setHorizontalGroup(
+            jInsertGradePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInsertGradePanelLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(jInsertGradePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jInsertGradePanelLayout.createSequentialGroup()
+                        .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jIGGradeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jInsertGradePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jInsertGradePanelLayout.createSequentialGroup()
+                            .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jIGCourseComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jInsertGradePanelLayout.createSequentialGroup()
+                            .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextFieldIIGStudentID, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jInsertGradePanelLayout.createSequentialGroup()
+                        .addComponent(jRCClearButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jIGInsertButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+        jInsertGradePanelLayout.setVerticalGroup(
+            jInsertGradePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInsertGradePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jInsertGradePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldIIGStudentID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel37))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jInsertGradePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jIGCourseComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel40))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jInsertGradePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jIGGradeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel41))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jInsertGradePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jIGInsertButton)
+                    .addComponent(jRCClearButton2))
+                .addContainerGap(159, Short.MAX_VALUE))
+        );
+
+        jPanel.add(jInsertGradePanel, "card2");
 
         jAddMenu.setText("Add");
         jAddMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -1372,6 +1582,22 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
         jStudentMenu.add(jRegisterCourseMenuItem);
+
+        jDropCourseMenuItem.setText("Drop Course");
+        jDropCourseMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jDropCourseMenuItemActionPerformed(evt);
+            }
+        });
+        jStudentMenu.add(jDropCourseMenuItem);
+
+        jInsertGradeMenuItem.setText("Insert/Update Grade");
+        jInsertGradeMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jInsertGradeMenuItemActionPerformed(evt);
+            }
+        });
+        jStudentMenu.add(jInsertGradeMenuItem);
 
         jMenuBar.add(jStudentMenu);
 
@@ -1892,6 +2118,105 @@ public class MainJFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jRCCourseComboBoxItemStateChanged
 
+    private void jDropCourseMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDropCourseMenuItemActionPerformed
+        // TODO add your handling code here:
+        jPanel.setVisible(true);
+        jPanel.removeAll();
+        jPanel.add(jDropCoursePanel);
+        jPanel.repaint();
+        jPanel.revalidate();
+        
+    }//GEN-LAST:event_jDropCourseMenuItemActionPerformed
+
+    private void jDCSectionComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDCSectionComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jDCSectionComboBoxActionPerformed
+
+    private void jDCSectionComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jDCSectionComboBoxItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jDCSectionComboBoxItemStateChanged
+
+    private void jRCClearButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRCClearButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRCClearButton1ActionPerformed
+
+    private void jDCDropButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDCDropButtonActionPerformed
+        if(db.checkEnrollment(Integer.parseInt(jTextFieldIDCStudentID.getText()),
+                    Integer.parseInt(jDCSectionComboBox.getSelectedItem().toString())))
+                {
+                    if(!db.hasGrade(Integer.parseInt(jTextFieldIDCStudentID.getText()),
+                    Integer.parseInt(jDCSectionComboBox.getSelectedItem().toString()))){
+                                    db.dropCourse(Integer.parseInt(jTextFieldIDCStudentID.getText()),
+                    Integer.parseInt(jDCSectionComboBox.getSelectedItem().toString()));
+            jTextFieldIDCStudentID.setText(null);
+            jDCSectionComboBox.removeAllItems();
+                    }
+
+        }
+    }//GEN-LAST:event_jDCDropButtonActionPerformed
+
+    private void jTextFieldIDCStudentIDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldIDCStudentIDMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldIDCStudentIDMouseClicked
+
+    private void jTextFieldIDCStudentIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIDCStudentIDActionPerformed
+             ArrayList<Integer> enrollments= db.getEnrollment(Integer.parseInt(jTextFieldIDCStudentID.getText()));
+             jDCSectionComboBox.removeAllItems();
+        for(int i=0;i<enrollments.size();i++){
+            jDCSectionComboBox.addItem(enrollments.get(i));
+        }
+    }//GEN-LAST:event_jTextFieldIDCStudentIDActionPerformed
+
+    private void jTextFieldIIGStudentIDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldIIGStudentIDMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldIIGStudentIDMouseClicked
+
+    private void jTextFieldIIGStudentIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIIGStudentIDActionPerformed
+         ArrayList<String> courses= db.getCourseNameByStudentID(Integer.parseInt(jTextFieldIIGStudentID.getText()));
+         jIGCourseComboBox.removeAllItems();
+          for(int i=0;i<courses.size();i++){
+               jIGCourseComboBox.addItem(courses.get(i));
+          }
+    }//GEN-LAST:event_jTextFieldIIGStudentIDActionPerformed
+
+    private void jIGInsertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jIGInsertButtonActionPerformed
+        db.addGrade(jIGGradeComboBox.getSelectedItem().toString(),
+                jIGCourseComboBox.getSelectedItem().toString(), 
+                Integer.parseInt(jTextFieldIIGStudentID.getText()));
+        jIGGradeComboBox.removeAllItems();
+        jIGCourseComboBox.removeAllItems();
+        jTextFieldIIGStudentID.setText(null);
+        
+    }//GEN-LAST:event_jIGInsertButtonActionPerformed
+
+    private void jRCClearButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRCClearButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRCClearButton2ActionPerformed
+
+    private void jIGCourseComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jIGCourseComboBoxItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jIGCourseComboBoxItemStateChanged
+
+    private void jIGCourseComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jIGCourseComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jIGCourseComboBoxActionPerformed
+
+    private void jIGGradeComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jIGGradeComboBoxItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jIGGradeComboBoxItemStateChanged
+
+    private void jIGGradeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jIGGradeComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jIGGradeComboBoxActionPerformed
+
+    private void jInsertGradeMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jInsertGradeMenuItemActionPerformed
+        jPanel.setVisible(true);
+        jPanel.removeAll();
+        jPanel.add(jInsertGradePanel);
+        jPanel.repaint();
+        jPanel.revalidate();
+    }//GEN-LAST:event_jInsertGradeMenuItemActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1999,12 +2324,21 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jClearNationalityButton;
     private javax.swing.JButton jClearRoomButton;
     private javax.swing.JButton jClearSemesterButton;
+    private javax.swing.JButton jDCDropButton;
+    private javax.swing.JComboBox jDCSectionComboBox;
     private com.toedter.calendar.JDateChooser jDateChooser;
     private javax.swing.JComboBox jDayComboBox;
     private javax.swing.JComboBox jDepartmentComboBox;
+    private javax.swing.JMenuItem jDropCourseMenuItem;
+    private javax.swing.JPanel jDropCoursePanel;
     private javax.swing.JComboBox jEndTimeHComboBox;
     private javax.swing.JComboBox jEndTimeMComboBox;
     private javax.swing.JComboBox jGenderComboBox;
+    private javax.swing.JComboBox jIGCourseComboBox;
+    private javax.swing.JComboBox jIGGradeComboBox;
+    private javax.swing.JButton jIGInsertButton;
+    private javax.swing.JMenuItem jInsertGradeMenuItem;
+    private javax.swing.JPanel jInsertGradePanel;
     private javax.swing.JMenu jInsertMenu;
     private javax.swing.JButton jInstructorAddButton;
     private javax.swing.JButton jInstructorClearButton;
@@ -2039,7 +2373,12 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -2057,6 +2396,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jRCAddButton;
     private javax.swing.JButton jRCClearButton;
+    private javax.swing.JButton jRCClearButton1;
+    private javax.swing.JButton jRCClearButton2;
     private javax.swing.JComboBox jRCCourseComboBox;
     private javax.swing.JComboBox jRCSectionComboBox;
     private javax.swing.JComboBox jRCSemesterComboBox;
@@ -2072,6 +2413,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox jStartTimeMComboBox;
     private javax.swing.JMenu jStudentMenu;
     private javax.swing.JTextField jTextFieldFName;
+    private javax.swing.JTextField jTextFieldIDCStudentID;
+    private javax.swing.JTextField jTextFieldIIGStudentID;
     private javax.swing.JTextField jTextFieldIMajorName;
     private javax.swing.JTextField jTextFieldIRCStudentID;
     private javax.swing.JTextField jTextFieldInstructorFName;

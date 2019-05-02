@@ -145,12 +145,13 @@ public class DBase {
 
     }
 
-    public void addGrade(String grade, int courseID, int studentID) {
+    public void addGrade(String grade, String courseName, int studentID) {
         try {
-            PreparedStatement st = conn.prepareStatement("insert into STUDENT_RECORD(GRADE,COURSE_ID,STUDENT_ID) values(?,?,?)");
+            PreparedStatement st = conn.prepareStatement("UPDATE STUDENT_RECORD SET GRADE = ? "
+                    + "WHERE STUDENT_ID = ? AND COURSE_ID=(SELECT COURSE_ID FROM COURSE WHERE COURSE_NAME=?)");
             st.setString(1, grade);
-            st.setInt(2, courseID);
-            st.setInt(3, studentID);
+            st.setInt(2, studentID);
+            st.setString(3, courseName);
             st.executeUpdate();
             st.close();
         } catch (SQLException ex) {
@@ -304,6 +305,24 @@ public class DBase {
 
     }
 
+    public void dropCourse(int studentID, int sectionID) {
+        try {
+            PreparedStatement st = conn.prepareStatement("DELETE FROM ENROLLS WHERE SECTION_ID = ? AND STUDENT_ID=?");
+            st.setInt(1, sectionID);
+            st.setInt(2, studentID);
+            st.executeUpdate();
+            st.close();
+            st = conn.prepareStatement("DELETE FROM STUDENT_RECORD WHERE COURSE_ID = ? AND STUDENT_ID=?");
+            st.setInt(1, getCourseIDFromSectionID(sectionID));
+            st.setInt(2, studentID);
+            st.executeUpdate();
+            st.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
     public ArrayList<String> getNationalityList() {
         try {
             ArrayList<String> nationalities = new ArrayList<>();
@@ -439,6 +458,43 @@ public class DBase {
         return null;
     }
 
+    public ArrayList<Integer> getEnrollment(int studentID) {
+        try {
+            ArrayList<Integer> sectionID = new ArrayList<>();
+            PreparedStatement st = conn.prepareStatement("SELECT SECTION_ID FROM ENROLLS WHERE STUDENT_ID=?");
+            st.setInt(1, studentID);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                sectionID.add(rs.getInt(1));
+            }
+            rs.close();
+            st.close();
+            return sectionID;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public ArrayList<String> getCourseNameByStudentID(int studentID) {
+        try {
+            ArrayList<String> courseName = new ArrayList<>();
+            PreparedStatement st = conn.prepareStatement("SELECT COURSE_NAME FROM COURSE "
+                    + "WHERE COURSE_ID= ALL (SELECT COURSE_ID FROM STUDENT_RECORD WHERE STUDENT_ID=?)");
+            st.setInt(1, studentID);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                courseName.add(rs.getString(1));
+            }
+            rs.close();
+            st.close();
+            return courseName;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+        
     public ArrayList<String> getSemesterList() {
         try {
             ArrayList<String> semesters = new ArrayList<>();
@@ -524,8 +580,8 @@ public class DBase {
         }
         return 0;
     }
-    
-     public int getInstructorID(String instructorName) {
+
+    public int getInstructorID(String instructorName) {
         try {
             PreparedStatement st = conn.prepareStatement("SELECT INSTRUCTOR_ID FROM INSTRUCTOR WHERE INSTRUCTOR_NAME=?");
             st.setString(1, instructorName);
@@ -541,7 +597,7 @@ public class DBase {
         }
         return 0;
     }
-     
+
     public int getSemesterID(String semesterName) {
         try {
             PreparedStatement st = conn.prepareStatement("SELECT SEMESTER_ID FROM SEMESTER WHERE SEMESTER_NAME=?");
@@ -563,6 +619,23 @@ public class DBase {
         try {
             PreparedStatement st = conn.prepareStatement("SELECT COURSE_ID FROM COURSE WHERE COURSE_NAME=?");
             st.setString(1, courseName);
+            ResultSet rs = st.executeQuery();
+            int temp;
+            rs.next();
+            temp = rs.getInt(1);
+            rs.close();
+            st.close();
+            return temp;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
+
+    private int getCourseIDFromSectionID(int sectionID) {
+        try {
+            PreparedStatement st = conn.prepareStatement("SELECT COURSE_ID FROM SECTION WHERE SECTION_ID=?");
+            st.setInt(1, sectionID);
             ResultSet rs = st.executeQuery();
             int temp;
             rs.next();
@@ -613,6 +686,24 @@ public class DBase {
 
     public boolean checkConnection() {
         return connected;
+    }
+
+    public boolean checkEnrollment(int studentID, int sectionID) {
+        try {
+            boolean registered = true;
+            PreparedStatement st = conn.prepareStatement("SELECT * FROM ENROLLS WHERE SECTION_ID=? AND STUDENT_ID=?");
+            st.setInt(1, sectionID);
+            st.setInt(2, studentID);
+            ResultSet rs = st.executeQuery();
+            if (rs.next() == false) {
+                registered = false;
+            }
+            return registered;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 
     public boolean checkTimeConflict(String time, int roomID) {
@@ -668,22 +759,26 @@ public class DBase {
         }
         return false;
     }
-    public void test(){}
 
     public boolean canRegister(int courseID) {
         try {
             PreparedStatement st = conn.prepareStatement("SELECT GRADE FROM STUDENT_RECORD WHERE COURSE_ID=?");
             st.setInt(1, courseID);
             ResultSet rs = st.executeQuery();
-            String temp="";
+            rs.next();
+            String temp = "";
             boolean check = true;
-            if(!rs.next())
-            temp = rs.getString(1);
-            if (temp.equals('F') || temp.equals("D") || temp.equals("D+") || temp.isEmpty()) {
+            if (rs.getString(1)==null) {
+                check=true;
+                return check;
+            }
+            else
+                temp=rs.getString(1);
+            if (temp.equals('F') || temp.equals("D") || temp.equals("D+")) {
                 check = true;
             } else {
                 check = false;
-}
+            }
             rs.close();
             st.close();
             return check;
@@ -731,6 +826,7 @@ public class DBase {
                 st = conn.prepareStatement("SELECT TIME FROM SECTION WHERE SECTION_ID=? GROUP BY TIME");
                 st.setInt(1, sections.get(i));
                 rs = st.executeQuery();
+                rs.next();
                 times.add(rs.getString(1));
             }
             String sectionTime[] = time.split("/");
@@ -755,6 +851,27 @@ public class DBase {
         } catch (SQLException ex) {
             Logger.getLogger(DBase.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
+            Logger.getLogger(DBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    public boolean hasGrade(int studentID, int sectionID) {
+        try {
+            boolean hasGrade = true;
+            PreparedStatement st = 
+            conn.prepareStatement("SELECT GRADE FROM STUDENT_RECORD WHERE STUDENT_ID=?  AND COURSE_ID=(SELECT COURSE_ID FROM SECTION WHERE SECTION_ID=?)");
+            st.setInt(1, studentID);
+            st.setInt(2, sectionID);
+            ResultSet rs = st.executeQuery();
+            rs.next();
+            String temp=rs.getString(1);
+            if (rs.wasNull()) {
+                hasGrade = false;
+            }
+            return hasGrade;
+
+        } catch (SQLException ex) {
             Logger.getLogger(DBase.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
